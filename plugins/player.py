@@ -563,8 +563,15 @@ async def player(_, m: Message):
         )
     await mp.delete(m)
 
-@Client.on_message(filters.command(["skip", f"skip@{U}"]) & admin_filter & (filters.chat(CHAT) | filters.private))
+@Client.on_message(filters.command(["skip", f"skip@{U}"]) & (filters.chat(CHAT) | filters.private))
 async def skip_track(_, m: Message):
+    if ADMIN_ONLY == "Y":
+        admins = await mp.get_admins(CHAT)
+        if message.from_user.id not in admins:
+            m=await message.reply_sticker("CAADBQADsQIAAtILIVYld1n74e3JuQI")
+            await mp.delete(m)
+            await mp.delete(message)
+            return
     group_call = mp.group_call
     if not group_call.is_connected:
         k=await m.reply("Nothing Playing")
@@ -733,8 +740,15 @@ async def restart_playing(_, m: Message):
 
 
 
-@Client.on_message(filters.command(["pause", f"pause@{U}"]) & admin_filter & (filters.chat(CHAT) | filters.private))
+@Client.on_message(filters.command(["pause", f"pause@{U}"]) & (filters.chat(CHAT) | filters.private))
 async def pause_playing(_, m: Message):
+    if ADMIN_ONLY == "Y":
+        admins = await mp.get_admins(CHAT)
+        if message.from_user.id not in admins:
+            m=await message.reply_sticker("CAADBQADsQIAAtILIVYld1n74e3JuQI")
+            await mp.delete(m)
+            await mp.delete(message)
+            return
     group_call = mp.group_call
     if not group_call.is_connected:
         k=await m.reply_text("Nothing playing to pause.")
@@ -749,8 +763,15 @@ async def pause_playing(_, m: Message):
 
 
 
-@Client.on_message(filters.command(["resume", f"resume@{U}"]) & admin_filter & (filters.chat(CHAT) | filters.private))
+@Client.on_message(filters.command(["resume", f"resume@{U}"]) & (filters.chat(CHAT) | filters.private))
 async def resume_playing(_, m: Message):
+    if ADMIN_ONLY == "Y":
+        admins = await mp.get_admins(CHAT)
+        if message.from_user.id not in admins:
+            m=await message.reply_sticker("CAADBQADsQIAAtILIVYld1n74e3JuQI")
+            await mp.delete(m)
+            await mp.delete(message)
+            return
     if not mp.group_call.is_connected:
         k=await m.reply_text("Nothing paused to resume.")
         await mp.delete(k)
@@ -1306,14 +1327,14 @@ async def upload(client, message):
             pass
  
 
-admincmds=["join", "unmute", "yplay", "mute", "leave", "clean", "vc", "pause", "resume", "stop", "skip", "radio", "stopradio", "replay", "restart", "volume", "shuffle", "clearplaylist", "cplay", "export", "import", f"export@{U}", f"import@{U}", f"yplay@{U}" f"cplay@{U}", f"clearplaylist@{U}", f"shuffle@{U}", f"volume@{U}", f"join@{U}", f"unmute@{U}", f"mute@{U}", f"leave@{U}", f"clean@{U}", f"vc@{U}", f"pause@{U}", f"resume@{U}", f"stop@{U}", f"skip@{U}", f"radio@{U}", f"stopradio@{U}", f"replay@{U}", f"restart@{U}"]
+admincmds=["join", "unmute", "yplay", "mute", "leave", "clean", "vc", "stop", "radio", "stopradio", "replay", "restart", "volume", "shuffle", "clearplaylist", "cplay", "export", "import", f"export@{U}", f"import@{U}", f"yplay@{U}" f"cplay@{U}", f"clearplaylist@{U}", f"shuffle@{U}", f"volume@{U}", f"join@{U}", f"unmute@{U}", f"mute@{U}", f"leave@{U}", f"clean@{U}", f"vc@{U}", f"stop@{U}", f"radio@{U}", f"stopradio@{U}", f"replay@{U}", f"restart@{U}"]
 
 @Client.on_message(filters.command(admincmds) & ~admin_filter & (filters.chat(CHAT) | filters.private))
 async def notforu(_, m: Message):
     k=await m.reply("Who the hell you are?.")
     await mp.delete(k)
     await mp.delete(m)
-allcmd = ["play", "player", "splay", f"splay@{U}", f"play@{U}", f"player@{U}"] + admincmds
+allcmd = ["play", "player", "splay", "skip" , "pause" , "resume" , f"splay@{U}", f"play@{U}", f"player@{U}" , f"skip@{U}" , f"pause@{U}" , f"resume@{U}"] + admincmds
 
 @Client.on_message(filters.command(allcmd) & ~filters.chat(CHAT) & filters.group)
 async def not_chat(_, m: Message):
