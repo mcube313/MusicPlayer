@@ -94,12 +94,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 tplaylist=playlist[:25]
                 pl=f"Listing first 25 songs of total {len(playlist)} songs.\n"
                 pl += f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                    f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
+                    f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}\n **Play By**: MCubeMedia\n"
                     for i, x in enumerate(tplaylist)
                     ])
             else:
                 pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                    f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}\n"
+                    f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}\n **Play By**: MCubeMedia\n"
                     for i, x in enumerate(playlist)
                 ])
         try:
@@ -128,12 +128,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 tplaylist=playlist[:25]
                 pl=f"Listing first 25 songs of total {len(playlist)} songs.\n"
                 pl += f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                    f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
+                    f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}\n **Play By**: MCubeMedia\n"
                     for i, x in enumerate(tplaylist)
                     ])
             else:
                 pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                    f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}\n"
+                    f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}\n **Play By**: MCubeMedia\n"
                     for i, x in enumerate(playlist)
                 ])
 
@@ -162,12 +162,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 tplaylist=playlist[:25]
                 pl=f"Listing first 25 songs of total {len(playlist)} songs.\n"
                 pl += f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                    f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
+                    f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}\n **Play By**: MCubeMedia\n"
                     for i, x in enumerate(tplaylist)
                     ])
             else:
                 pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                    f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}\n"
+                    f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}\n **Play By**: MCubeMedia\n"
                     for i, x in enumerate(playlist)
                 ])
 
@@ -196,12 +196,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 tplaylist=playlist[:25]
                 pl=f"Listing first 25 songs of total {len(playlist)} songs.\n"
                 pl += f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                    f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
+                    f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}\n **Play By**: MCubeMedia\n"
                     for i, x in enumerate(tplaylist)
                 ])
             else:
                 pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n" + "\n".join([
-                    f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}\n"
+                    f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}\n **Play By**: MCubeMedia\n"
                     for i, x in enumerate(playlist)
                 ])
 
@@ -224,8 +224,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data=="help":
         buttons = [
             [
-                InlineKeyboardButton('⚙️ Update Channel', url='https://t.me/subin_works'),
-                InlineKeyboardButton('🧩 Source', url='https://github.com/subinps/MusicPlayer'),
+                InlineKeyboardButton('⚙️ Update Channel', url='https://t.me/MCubeMediaOfficial'),
+                InlineKeyboardButton('🧩 Source', url='https://t.me/smplmcube/7'),
             ]
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
